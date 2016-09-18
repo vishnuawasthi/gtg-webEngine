@@ -20,7 +20,7 @@ http://localhost:8090/v2/api-docs/
 
 To See the UI Hit below URL :
 
-http://localhost:8090/swagger-ui.htm
+http://localhost:8090/swagger-ui.html
 
 
 

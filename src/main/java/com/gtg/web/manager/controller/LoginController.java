@@ -136,7 +136,7 @@ public class LoginController extends BaseController {
 		return new ResponseEntity<Object>(resource, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/api/users", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/registration/users", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public HttpEntity<Object> saveUser(@RequestBody @Valid UserResource resource, BindingResult result) {
 		log.info("saveUser() - start");
 		try {

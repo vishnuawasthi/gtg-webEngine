@@ -29,7 +29,8 @@ public class SwaggerConfiguration {
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors.basePackage("com.gtg.web.manager.controller"))
-				.paths(PathSelectors.ant("/api/*"))
+				.paths(PathSelectors.any())
+				//.paths(PathSelectors.ant("/*"))
 				// .paths(PathSelectors.any())
 				.build()
 				.apiInfo(apiInfo())

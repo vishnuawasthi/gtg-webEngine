@@ -75,6 +75,7 @@ public class SecurityDelegatingFilter extends DelegatingFilterProxy {
 			
 				String  failedResponse = objectMapper.writeValueAsString(loginResponse);
 				httpResponse.setStatus(403);
+				httpResponse.setContentType("application/json");
 				httpResponse.getWriter().write(failedResponse);
 				//httpResponse.getOutputStream().flush();
 				//httpResponse.getOutputStream().close();
@@ -90,6 +91,7 @@ public class SecurityDelegatingFilter extends DelegatingFilterProxy {
 		//ObjectMapper objectMapper = new ObjectMapper();
 		String  failedResponse = objectMapper.writeValueAsString(loginResponse);
 		httpResponse.setStatus(400);
+		httpResponse.setContentType("application/json");
 		httpResponse.getWriter().write(failedResponse);
 		//httpResponse.getOutputStream().flush();
 	//	httpResponse.getOutputStream().close();
