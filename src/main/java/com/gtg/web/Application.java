@@ -11,11 +11,12 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.gtg.processor.jobs.JobRunner;
-
+@EnableAsync
 @EnableWebMvc
 @EntityScan(basePackages="com.gtg.core.entity")
 @EnableSpringDataWebSupport
@@ -36,7 +37,8 @@ import com.gtg.processor.jobs.JobRunner;
 		"com.gtg.processor.manager.service",
 		"com.gtg.web.manager.receiver",
 		"com.gtg.web.config",
-		"com.gtg.processor.jobs"
+		"com.gtg.processor.jobs",
+		"com.gtg.email.service"
 		
 })
 public class Application implements CommandLineRunner {
