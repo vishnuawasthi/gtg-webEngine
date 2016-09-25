@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
 import com.gtg.core.entity.User;
-import com.gtg.core.entity.UserRoles;
+import com.gtg.core.entity.UserRules;
 
 @Component
 public class UserDetailsImpl  extends User implements UserDetails{
@@ -30,14 +30,14 @@ public class UserDetailsImpl  extends User implements UserDetails{
 		//this.setEmail(user.getEmail());
 		this.setUsername(user.getUsername());
 		this.setPassword(user.getPassword());
-		this.setUserRoles(user.getUserRoles());
+		//this.setUserRoles(user.getUserRules());
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		System.out.println("getAuthorities()  -start");
 		Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		//Set<UserRoles> userRoles = this.getUserRoles();
+		//Set<UserRules> userRules = this.getUserRoles();
 		
 		/*if (userRoles != null) {
 			for (Roles roles : userRoles) {
@@ -47,9 +47,9 @@ public class UserDetailsImpl  extends User implements UserDetails{
 			}
 		}*/
 		
-		UserRoles userRole = this.getUserRoles();
+		UserRules userRole = this.getUserRules();
 		if(null!= userRole){
-			SimpleGrantedAuthority authority = new SimpleGrantedAuthority(userRole.getRoleName());
+			SimpleGrantedAuthority authority = new SimpleGrantedAuthority(userRole.getRuleName());
 			authorities.add(authority);
 		}
 		
