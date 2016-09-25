@@ -250,7 +250,7 @@ public class LoginController extends BaseController {
 			if (isSuccess) {
 				response.setStatus("200");
 				response.setDescription("Password reset successful");
-				response.setMessage("Your password has been set and sent to your register email id.");
+				response.setMessage("Your password has been reset and sent to your register email id.");
 			}
 		} catch (InvalidUserException e) {
 			log.error("Error Occured while processing forgotPassword : ", e);
@@ -266,6 +266,41 @@ public class LoginController extends BaseController {
 			return new ResponseEntity<Object>(failureResponseResource, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		log.info("forgotPassword() - end");
+		return new ResponseEntity<Object>(response, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/async/forgotPassword", method = RequestMethod.POST)
+	public HttpEntity<Object> forgotPasswordAsync(@RequestBody @Valid ForgotPasswordResource foPasswordResource,
+			BindingResult result) {
+		log.info("forgotPasswordAsync() - start");
+		ForgotPasswordResponseResource response = new ForgotPasswordResponseResource();
+		if (result.hasErrors()) {
+			FailureResponseResource failureResponseResource = getValidationMessages(result);
+			log.info("forgotPasswordAsync() - end : error");
+			return new ResponseEntity<Object>(failureResponseResource, HttpStatus.BAD_REQUEST);
+		}
+
+		try {
+			UserDTO userDTO = new UserDTO();
+			userDTO.setEmail(foPasswordResource.getEmail());
+			userDTO.setUsername(foPasswordResource.getUsername());
+			GTGMQEvent event = new GTGMQEvent();
+			event.setAsyncCallType(GTGAsyncCallsType.FORGOTPASSWORD.name());
+			event.setUserDTO(userDTO);
+			rabbitMQService.pushUserToMQ(event);
+			response.setStatus("200");
+			response.setDescription("Password reset successful");
+			response.setMessage("Your password has been reset and sent to your register email id.");
+
+		} catch (Exception e) {
+			log.error("Error Occured while processing forgotPassword : ", e);
+			FailureResponseResource failureResponseResource = getFailureResponseResource("500", e.getMessage(),
+					e.getMessage());
+			log.info("forgotPasswordAsync() - end : error");
+			return new ResponseEntity<Object>(failureResponseResource, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		log.info("forgotPasswordAsync() - end");
 		return new ResponseEntity<Object>(response, HttpStatus.OK);
 	}
 

@@ -61,7 +61,7 @@
 		<!-- processor module -->
 		<dependency>
 			<groupId>com.gtg</groupId>
-			<artifactId>gtg-processor</artifactId>
+			<artifactId>gtg-services</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
