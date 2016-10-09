@@ -1,4 +1,4 @@
-package com.gtg.web.manager.resources;
+package com.gtg.web.resources;
 
 import java.io.Serializable;
 import java.util.List;

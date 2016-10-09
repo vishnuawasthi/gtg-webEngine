@@ -1,4 +1,4 @@
-package com.gtg.web.manager.resources;
+package com.gtg.web.resources;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;

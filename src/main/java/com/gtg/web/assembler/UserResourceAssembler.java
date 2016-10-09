@@ -1,4 +1,4 @@
-package com.gtg.web.manager.assembler;
+package com.gtg.web.assembler;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
@@ -9,9 +9,9 @@ import java.util.List;
 import org.springframework.hateoas.mvc.ResourceAssemblerSupport;
 import org.springframework.stereotype.Service;
 
-import com.gtg.processor.manager.dto.UserDTO;
-import com.gtg.web.manager.controller.LoginController;
-import com.gtg.web.manager.resources.UserResource;
+import com.gtg.lib.dto.UserDTO;
+import com.gtg.web.controller.LoginController;
+import com.gtg.web.resources.UserResource;
 
 @Service
 public class UserResourceAssembler extends ResourceAssemblerSupport<UserDTO, UserResource> {

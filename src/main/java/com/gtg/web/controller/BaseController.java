@@ -1,4 +1,4 @@
-package com.gtg.web.manager.controller;
+package com.gtg.web.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 
-import com.gtg.web.manager.resources.FailureResponseResource;
-import com.gtg.web.manager.resources.SuccessResponseResource;
+import com.gtg.web.resources.FailureResponseResource;
+import com.gtg.web.resources.SuccessResponseResource;
 
 public class BaseController {
 

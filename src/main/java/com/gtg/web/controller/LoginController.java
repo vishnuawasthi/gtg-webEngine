@@ -1,15 +1,6 @@
-package com.gtg.web.manager.controller;
+package com.gtg.web.controller;
 
-import static com.gtg.processor.constants.Constants.BAD_REQUEST;
-import static com.gtg.processor.constants.Constants.INTERNAL_SERVER_ERROR;
-import static com.gtg.processor.constants.Constants.INVALID_CREDENTIALS;
-import static com.gtg.processor.constants.Constants.LOGGEDOUT_SUCCESSFULLY;
-import static com.gtg.processor.constants.Constants.LOGIN_ERROR_MESSAGE;
-import static com.gtg.processor.constants.Constants.SERVICE_NOT_AVAILABLE;
-import static com.gtg.processor.constants.Constants.STATUS_ERROR;
-import static com.gtg.processor.constants.Constants.USER_NAME_REQUIRED;
-import static com.gtg.processor.constants.Constants.USER_NOT_EXIST;
-
+import static com.gtg.lib.constants.Constants.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -35,21 +26,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gtg.core.constants.GTGAsyncCallsType;
-import com.gtg.processor.criteria.UserSearchCriteria;
-import com.gtg.processor.events.GTGMQEvent;
-import com.gtg.processor.exception.InvalidUserException;
-import com.gtg.processor.manager.dto.LoginRequestDTO;
-import com.gtg.processor.manager.dto.LoginResponseDTO;
-import com.gtg.processor.manager.dto.UserDTO;
-import com.gtg.processor.manager.service.LoginService;
-import com.gtg.processor.manager.service.PushToRabbitMQService;
-import com.gtg.web.manager.assembler.UserResourceAssembler;
-import com.gtg.web.manager.resources.FailureResponseResource;
-import com.gtg.web.manager.resources.ForgotPasswordResource;
-import com.gtg.web.manager.resources.ForgotPasswordResponseResource;
-import com.gtg.web.manager.resources.LoginResource;
-import com.gtg.web.manager.resources.SuccessResponseResource;
-import com.gtg.web.manager.resources.UserResource;
+import com.gtg.lib.dto.LoginRequestDTO;
+import com.gtg.lib.dto.LoginResponseDTO;
+import com.gtg.lib.dto.UserDTO;
+import com.gtg.lib.events.GTGMQEvent;
+import com.gtg.services.criteria.UserSearchCriteria;
+import com.gtg.services.exception.InvalidUserException;
+import com.gtg.services.service.LoginService;
+import com.gtg.services.service.PushToRabbitMQService;
+import com.gtg.web.assembler.UserResourceAssembler;
+import com.gtg.web.resources.FailureResponseResource;
+import com.gtg.web.resources.ForgotPasswordResource;
+import com.gtg.web.resources.ForgotPasswordResponseResource;
+import com.gtg.web.resources.LoginResource;
+import com.gtg.web.resources.SuccessResponseResource;
+import com.gtg.web.resources.UserResource;
 
 @RestController
 public class LoginController extends BaseController {

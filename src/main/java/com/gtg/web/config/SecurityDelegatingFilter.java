@@ -16,9 +16,9 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.filter.DelegatingFilterProxy;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gtg.processor.manager.dto.LoginResponseDTO;
-import com.gtg.processor.manager.dto.UserDTO;
-import com.gtg.processor.manager.service.LoginService;
+import com.gtg.lib.dto.LoginResponseDTO;
+import com.gtg.lib.dto.UserDTO;
+import com.gtg.services.service.LoginService;
 
 @Component
 public class SecurityDelegatingFilter extends DelegatingFilterProxy {

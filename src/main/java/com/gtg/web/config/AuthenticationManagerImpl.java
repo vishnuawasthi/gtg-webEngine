@@ -9,7 +9,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
-import com.gtg.processor.manager.service.LoginService;
+import com.gtg.services.service.LoginService;
 
 @Component("authenticationManager")
 public class AuthenticationManagerImpl implements AuthenticationManager {

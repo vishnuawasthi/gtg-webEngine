@@ -15,7 +15,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import com.gtg.processor.jobs.JobRunner;
+import com.gtg.services.jobs.JobRunner;
 @EnableAsync
 @EnableWebMvc
 @EntityScan(basePackages="com.gtg.core.entity")
@@ -24,21 +24,22 @@ import com.gtg.processor.jobs.JobRunner;
 @EnableScheduling
 @EnableJpaRepositories(basePackages="com.gtg.core.repository")
 @PropertySources(value= {
-	@PropertySource(value="classpath:messages.properties")
+	@PropertySource(value={"classpath:messages.properties"})
 })
 @ComponentScan(basePackages = {
 		"com.gtg.web.controller",
 		"com.gtg.web.security.service",
 		"com.gtg.web.utils" ,
-		"com.gtg.web.manager.assembler",
-		"com.gtg.web.marketplace.assembler",
-		"com.gtg.web.manager.controller",
-		"com.gtg.web.marketplace.controller",
-		"com.gtg.processor.manager.service",
-		"com.gtg.web.manager.receiver",
+		"com.gtg.web.assembler",
+		"com.gtg.web.assembler",
+		"com.gtg.web.controller",
+		"com.gtg.web.controller",
+		"com.gtg.services.service",
 		"com.gtg.web.config",
-		"com.gtg.processor.jobs",
-		"com.gtg.email.service"
+		"com.gtg.services.jobs",
+		"com.gtg.email.service",
+		"com.gtg.cache",
+		"com.gtg.cache.config"
 		
 })
 public class Application implements CommandLineRunner {
