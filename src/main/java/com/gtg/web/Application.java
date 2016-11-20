@@ -38,8 +38,8 @@ import com.gtg.services.jobs.JobRunner;
 		"com.gtg.web.config",
 		"com.gtg.services.jobs",
 		"com.gtg.email.service",
-		"com.gtg.cache",
-		"com.gtg.cache.config"
+		/*"com.gtg.cache",
+		"com.gtg.cache.config"*/
 		
 })
 public class Application implements CommandLineRunner {

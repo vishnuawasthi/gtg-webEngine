@@ -2,6 +2,8 @@ package com.gtg.web.resources;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.hateoas.ResourceSupport;
 
@@ -12,7 +14,9 @@ public class UserResource extends ResourceSupport {
 	private String firstName;
 	private String lastName;
 	private String email;
+	@NotEmpty(message="Username is required")
 	private String username;
+	@NotEmpty(message="Password is required")
 	private String password;
 	private String apiKey;
 	private Date created;
@@ -20,6 +24,8 @@ public class UserResource extends ResourceSupport {
 	private String createdBy;
 	private String updatedBy;
 	private String roleName;
+	
+	@NotNull(message="RoleId is required")
 	private Long roleId;
 	public Long getUserId() {
 		return userId;

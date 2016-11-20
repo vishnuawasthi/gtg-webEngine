@@ -31,6 +31,9 @@ public class LoginServiceImplTest {
 
 	@Value("${gtg.user.username}")
 	private String username;
+	
+	@Value("${gtg.user.password")
+	private String password;
 
 	@Value("${gtg.login.status}")
 	private String status;
@@ -42,6 +45,8 @@ public class LoginServiceImplTest {
 	@Test
 	public void login() {
 		LoginRequestDTO dto = new LoginRequestDTO();
+		dto.setUsername(username);
+		dto.setPassword(password);
 		LoginResponseDTO loginResponseDTO = null;
 		try {
 			loginResponseDTO = loginService.login(dto);

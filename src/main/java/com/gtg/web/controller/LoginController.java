@@ -1,6 +1,15 @@
 package com.gtg.web.controller;
 
-import static com.gtg.lib.constants.Constants.*;
+import static com.gtg.lib.constants.Constants.BAD_REQUEST;
+import static com.gtg.lib.constants.Constants.INTERNAL_SERVER_ERROR;
+import static com.gtg.lib.constants.Constants.INVALID_CREDENTIALS;
+import static com.gtg.lib.constants.Constants.LOGGEDOUT_SUCCESSFULLY;
+import static com.gtg.lib.constants.Constants.LOGIN_ERROR_MESSAGE;
+import static com.gtg.lib.constants.Constants.SERVICE_NOT_AVAILABLE;
+import static com.gtg.lib.constants.Constants.STATUS_ERROR;
+import static com.gtg.lib.constants.Constants.USER_NAME_REQUIRED;
+import static com.gtg.lib.constants.Constants.USER_NOT_EXIST;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
