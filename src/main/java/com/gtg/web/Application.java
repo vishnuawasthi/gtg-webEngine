@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.orm.jpa.EntityScan;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
@@ -42,8 +44,9 @@ import com.gtg.services.jobs.JobRunner;
 		"com.gtg.cache.config"*/
 		
 })
-public class Application implements CommandLineRunner {
+public class Application   extends SpringBootServletInitializer implements CommandLineRunner {
 
+	private static Class<Application> applicationClass = Application.class;
 	@Autowired
 	JobRunner jobRunner;
 	
@@ -55,6 +58,11 @@ public class Application implements CommandLineRunner {
 		System.out.println("Started  ....  gtg-web-Engine ");
 	}
 	
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+		return builder.sources(applicationClass);
+	}
+
 	public static void main(String...strings ){
 		ApplicationContext ctx = SpringApplication.run(Application.class, strings);
 	}

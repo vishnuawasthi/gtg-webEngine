@@ -71,6 +71,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+                     <exclusion>
+                           <groupId>org.springframework.boot</groupId>
+                           <artifactId>spring-boot-starter-tomcat</artifactId>
+                     </exclusion>
+                </exclusions>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
@@ -131,7 +137,7 @@
 
 		<!-- JACKSON -->
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
 			<version>2.6.2</version>
@@ -147,7 +153,34 @@
 			<artifactId>jackson-annotations</artifactId>
 			<version>2.6.2</version>
 		</dependency>
+ -->
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+		<version>2.7.4</version>
+		<exclusions>
+			<exclusion>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-core</artifactId>
+			</exclusion>
+			<exclusion>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-annotations</artifactId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-core</artifactId>
+		<version>2.7.4</version>
+	</dependency>
 
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-annotations</artifactId>
+		<version>2.7.4</version>
+	</dependency>
+ 
 		<!-- Spring HATEOAS provides some APIs to ease creating REST representations 
 			that follow the HATEOAS principle when working with Spring and especially 
 			Spring MVC. The core problem it tries to address is link creation and representation 
@@ -221,19 +254,6 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-
-			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.0</version>
-				<configuration>
-					<url>http://localhost:1100/manager/text</url>
-					<path>/</path>
-					<username>admin</username>
-					<password>root</password>
-				</configuration>
-			</plugin>
-
 		</plugins>
 	</build>
 </project>
